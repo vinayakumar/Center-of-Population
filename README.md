@@ -10,3 +10,12 @@ For sake of demo, the input is in input_cities.json and it is mainly around karn
 <li>open index.html in the browser </li>
 <li>to get the COP , press Click me button.</li>
 </ul>
+
+<h3>Files Arrangement</h3>
+There are client side code and server side code.
+<ul>
+<li>Currently , all client side code resides under assets directory </li>
+<li>server side code in the main direcotry </li>
+</ul>
+
+
