@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Center of Population</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- compiled and minified Bootstrap JavaScript -->
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="assets/js/gmaps.js"></script>
+  <script type="text/javascript" src="assets/js/init.js"></script>
+    
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet">
+    
+    
+  <link rel="stylesheet" type="text/css" href="assets/css/map.css" />
+  <script type="text/javascript">
+    var map;
+    $(document).ready(function(){
+        // initialize the map with first restful call to get all the cities who is part of 
+        // this calculation
+        initialize();
+    });
+  </script>
+</head>
+<body>
+  <h1>Center of Population</h1>
+  <div class="row">
+    <div class="span11">
+      <div id="map"></div>
+    </div>
+  </div>
+    <br>
+    <div class="container">
+        Center of Population : <a href="#map" class="btn btn-primary text-center" onClick="javascript:overlayCOP()">Click Me</a>
+    </div>
+    
+  <h3>Problem Statement</h3>    
+  <p> 
+Consider that you have been given a set of latitude/longitude co-ordinates for various cities (represented as points) on a map along with their respective population size. Can you write an efficient function to find the city that most closely represents the population center for all the given cities? Take a sample data set with at least 10 data points. Each data point has City name, Latitude, Longitude, and Population size.
+Please write your code in any object-oriented programming language and make sure it compiles and runs well. Send me the instructions to run the program on command line in a linux environment. Please make sure the code is well commented and readable. Also, follow all the standard coding practices in the language you choose.
+Along with your program, please also mention the run-time complexity of your core solution and any assumptions that you have made
+</p>
+<h3> Approach </h3>
+  <p> The Apporach is  based on input from <a href="http://en.wikipedia.org/wiki/Center_of_population">Wiki</a></p>
+<h3> Solution</h3>
+    
+   <p> <Strong>Input </Strong>: Input is obtained by calling a GET on resftul api : http://localhost:8080/api/COP/Cities <br>
+   This returns the data about cities latitude and longitude . This input read from the file : <h6>input_cities.json </h6>
+    Google Map JavaScript Api's are use to plot this input on the map. </p>
+    
+   <p> After the input is plotted,  Press the below <Strong>Center of Population</Strong> button. This would invoke restful api http://localhost:8080/api/COP/COP which calculates the Mean Center of all the data points using the formula as indicated below :</p>
+      <div class="container">
+        <img src="assets/img/mean_center_formula.png" class="img-responsive"/>
+          <br>
+       </div>
+      <p> This api would return Center Value (Latitude and Longitude) for give set of data points.
+          This data would be overlayed on the map to display <Strong>Center Of Population .</Strong></p>
+    
+    <h3>The Deep Dive </h3>
+    
+      <p> The solution is being done  using  MVC Pattern . </p>
+       <ul>
+       <li>View : is this current page which uses  restful api for getting the data </li>
+       <li>Controller: server.js on which provides restful apis acts as the controllers to bring in data for the view.</li>
+       <li>Model : in the current use example, <b>it is input_cities.json</b></li>
+      </ul>
+    
+
+    
+</body>
+</html

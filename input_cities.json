@@ -1,0 +1,78 @@
+{
+    "Cities": [
+        {
+            "CityName": "Bangalore",
+            "Latitude": 12.9539974,
+            "Longitude": 77.6309395,
+            "Population": 9621551
+        },
+        {
+            "CityName": "Mysore",
+            "Latitude": 12.3106457,
+            "Longitude": 76.6356898,
+            "Population": 887446
+        },
+             {
+            "CityName": "Hassan",
+            "Latitude": 13.0126213,
+            "Longitude": 76.1039847,
+            "Population": 1776421
+        },
+        {
+            "CityName": "Madikeri",
+            "Latitude": 12.4314281,
+            "Longitude": 75.7348699,
+            "Population": 33381
+        },
+        {
+            "CityName": "Mangalore",
+            "Latitude": 12.9229922,
+            "Longitude": 74.8520892,
+            "Population": 488968
+        },
+        {
+            "CityName": "Udupi",
+            "Latitude": 13.3318086,
+            "Longitude": 74.7463837,
+            "Population": 125306
+        },
+            {
+            "CityName": "Karwar",
+            "Latitude": 14.8211345,
+            "Longitude": 74.1424799,
+            "Population": 63755
+        },
+
+        {
+            "CityName": "Belgaum",
+            "Latitude": 15.8667131,
+            "Longitude": 74.5084405,
+            "Population": 4779661
+        },
+        {
+            "CityName": "Hubli",
+            "Latitude": 15.3445885,
+            "Longitude": 75.1439819,
+            "Population": 94378
+        },
+           {
+            "CityName": "Shimoga",
+            "Latitude": 13.932209,
+            "Longitude": 75.564715,
+            "Population": 1752753
+        },
+        {
+            "CityName": "davangere",
+            "Latitude": 14.4625634,
+            "Longitude": 75.9162998,
+            "Population": 1945497
+        },
+        {
+            "CityName": "Tumkur",
+            "Latitude": 13.3496581,
+            "Longitude": 77.097609,
+            "Population": 2678980
+        }
+        
+    ]
+}
