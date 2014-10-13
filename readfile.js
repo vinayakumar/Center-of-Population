@@ -44,6 +44,7 @@ exports.getLatLongandPopulation = function(callback) {
           latlongArr.Latitude = citiesArr[i].Latitude;
           latlongArr.Longitude = citiesArr[i].Longitude;
           latlongArr.Population = citiesArr[i].Population;
+          latlongArr.CityName   = citiesArr[i].CityName;
            
           cityPopulationLatLonArr[i] = latlongArr;
       }
@@ -72,9 +73,7 @@ exports.getInputCities=function(callback) {
       for (var i = 0 ;i <citiesArr.length;i++) {
             
           var latlongArr = new Array ();
-          
-   
-          
+
           latlongArr[0] = citiesArr[i].Latitude;
           latlongArr[1] = citiesArr[i].Longitude;
           

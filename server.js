@@ -42,13 +42,14 @@ router.get('/COP/cities', function(req, res) {
 
 //calculates the input data information to get mean center , also known as center of gravity
 router.get('/COP/COP', function(req, res) {
-    var outputData;
+    var outputData = new Object();
     readFile.getLatLongandPopulation ( function (listOfInputCitiesWithPopulation) {
         
         //DEBUG console.log("Returning data is "+listOfInputCitiesWithPopulation);
-        centerOfPopulation.runAlgorithm(function (output) {
+        centerOfPopulation.runAlgorithm(function (nearestCity,meanCenter) {
          
-         outputData = output;
+         outputData.nearestCity = nearestCity;
+         outputData.meanCenter = meanCenter;
             
         },listOfInputCitiesWithPopulation);
       

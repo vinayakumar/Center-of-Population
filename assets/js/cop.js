@@ -53,10 +53,9 @@ function initialize() {
 This  method overlays on the top of existing map. 
 This method adds the mean center point to the map 
 It calls  api/COP/COP 
+It also add nearest input city to the mean center
 
-This method is called when the button is clicked.
-
-//TODO : add the closiest city to this
+This method is called when the button "Click Me" is clicked.
 
 */
 
@@ -73,35 +72,28 @@ function overlayCOP(){
                 console.log("error calling the cop restful api"+JSON.stringify(err));
             },
             success: function( data ) {
+                
+                console.log("Data"+JSON.stringify(data));
 
                 map.addMarker({
-                lat: data.lat,
-                lng: data.long,
+                lat: data.meanCenter.lat,
+                lng: data.meanCenter.long,
                 title: 'Center of Population',
                 infoWindow: {
-                  content: '<p> Cooridnates are'+ data.lat +':'+data.long+'</p>'
+                  content: '<p> Cooridnates are'+ data.meanCenter.lat +':'+data.meanCenter.long+'</p>'
                 }
-              });    
-          }
+              });   
+                
+                map.addMarker({
+                    lat: data.nearestCity.Latitude,
+                    lng: data.nearestCity.Longitude,
+                    icons: [{icon: google.maps.SymbolPath.FORWARD_CLOSED_ARROW}],
+                    title: 'Nearest City',
+                    infoWindow: {
+                    content: '<p> City Name :'+ data.nearestCity.CityName +'<br> Distance from Mean Center :'+(data.nearestCity.distanceFromCOP)/1000 +' kms</p>'
+                    }
+                    
+                });
+          } //end of success
     });
-}
-
-
-/**
-TO BE DELETED
-  Get an array of input and plot it on the graph 
-  For once this is from node.js server which returns u an array
-  
-  [[][][][]] : /COP/cities -- used to plot the cities
-  http://localhost:8080/api/COP/cities
-  
-  
-  read cities from file and convert to array
-  
-  
-  
-  [] : v1/COP/plot -- center of population lat/long -- draw a circle
-  
-  
-  
-  */
+} // end of OverLayCOP

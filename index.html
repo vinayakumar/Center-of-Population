@@ -8,7 +8,7 @@
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="assets/js/gmaps.js"></script>
-  <script type="text/javascript" src="assets/js/init.js"></script>
+  <script type="text/javascript" src="assets/js/cop.js"></script>
     
         <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -50,15 +50,17 @@ Along with your program, please also mention the run-time complexity of your cor
    This returns the data about cities latitude and longitude . This input read from the file : <h6>input_cities.json </h6>
     Google Map JavaScript Api's are use to plot this input on the map. </p>
     
-   <p> After the input is plotted,  Press the below <Strong>Center of Population</Strong> button. This would invoke restful api http://localhost:8080/api/COP/COP which calculates the Mean Center of all the data points using the formula as indicated below :</p>
+   <p> After the input is plotted,  Press the  <Strong>Center of Population</Strong> button. This would invoke restful api http://localhost:8080/api/COP/COP which calculates the Mean Center of all the data points using the formula as indicated below :</p>
       <div class="container">
         <img src="assets/img/mean_center_formula.png" class="img-responsive"/>
           <br>
        </div>
       <p> This api would return Center Value (Latitude and Longitude) for give set of data points.
-          This data would be overlayed on the map to display <Strong>Center Of Population .</Strong></p>
+          This data would be overlayed on the map to display <Strong>Center Of Population .</Strong> along 
+          with the nearest city.</p>. Click on the marker to see more details about the nearest city and the
+          distance from the COP.
     
-    <h3>The Deep Dive </h3>
+      <h3>The Deep Dive </h3>
     
       <p> The solution is being done  using  MVC Pattern . </p>
        <ul>
@@ -67,7 +69,27 @@ Along with your program, please also mention the run-time complexity of your cor
        <li>Model : in the current use example, <b>it is input_cities.json</b></li>
       </ul>
     
-
-    
+        <h4>API's</h4>
+            <p>There are 2 apis's that are being used in this application </p>
+         <ul>
+            <li>
+                <b> http://localhost:8080/api/COP/cities </b> <br>
+                 This returns all the cities that are being considered for calculations.
+            </li> 
+             <li>
+                 <b> http://localhost:8080/api/COP/COP </b> <br>
+                  This returns all nearest city and Mean Center for given set of cities and there population.
+                  <i> Currently , this api is overloaded and can be cleaned up further</i>
+             </li>
+        </ul>
+        <h4>Interesting Algorithm's</h4>
+             There are 2 Algorithms that are interesting in this application
+        <ul>
+        <li> The First is finding center of population. This requires to find the weight of each input and then use that weight to get the mean. 
+        Time Complexity O(n).
+        </li> 
+         <li> The second algorithm is finding nearest city from the mean co-ordinate. This requires to find the distance b/w  2 co-ordinates and get the least out of it.  Again , Time Complexity O(n).
+        </li>
+        </ul>
 </body>
 </html
